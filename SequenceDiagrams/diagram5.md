@@ -1,3 +1,6 @@
+## Sequence Diagram #5: Database Server Error
+#### Description: This diagram shows the flow of how the system handles an error when the database server returns an error.
+
 ```mermaid
 sequenceDiagram
     actor Students/Staff

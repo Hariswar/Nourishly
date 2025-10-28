@@ -1,3 +1,6 @@
+## Sequence Diagram #1: Browsing Dining Menu
+#### Description: This diagram shows the flow of a user browsing dining menus, optionally applying dietary filters, and favoriting a meal.
+
 ```mermaid
 sequenceDiagram
     actor Students/Staff

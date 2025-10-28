@@ -1,3 +1,6 @@
+## Sequence Diagram #3: Nutrition Tracking
+#### Description: This diagram shows the flow of a user tracking their meals and syncing with a third-party app to track calories.
+
 ```mermaid
 sequenceDiagram
     actor Students/Staff

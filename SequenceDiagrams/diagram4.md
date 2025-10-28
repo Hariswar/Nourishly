@@ -1,3 +1,6 @@
+## Sequence Diagram #4: No Dining Options Found
+#### Description: This diagram shows the flow of a user who selects dietary filters and finds no matching meals so the system suggests alternatives.
+
 ```mermaid
 sequenceDiagram
     actor Students/Staff
