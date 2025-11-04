@@ -1,0 +1,6 @@
+@DiningAPI_HostAddress = http://localhost:5150
+
+GET {{DiningAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
