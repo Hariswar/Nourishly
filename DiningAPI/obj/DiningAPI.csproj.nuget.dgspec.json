@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/c/Users/alanj/Desktop/CS4090-SWECapstone/Nourishly/DiningAPI/DiningAPI.csproj": {}
+    "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj": {}
   },
   "projects": {
-    "/mnt/c/Users/alanj/Desktop/CS4090-SWECapstone/Nourishly/DiningAPI/DiningAPI.csproj": {
+    "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/c/Users/alanj/Desktop/CS4090-SWECapstone/Nourishly/DiningAPI/DiningAPI.csproj",
+        "projectUniqueName": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
         "projectName": "DiningAPI",
-        "projectPath": "/mnt/c/Users/alanj/Desktop/CS4090-SWECapstone/Nourishly/DiningAPI/DiningAPI.csproj",
-        "packagesPath": "/home/alan/.nuget/packages/",
-        "outputPath": "/mnt/c/Users/alanj/Desktop/CS4090-SWECapstone/Nourishly/DiningAPI/obj/",
+        "projectPath": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
+        "packagesPath": "C:\\Users\\alanj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/alan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\alanj\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,7 +32,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -58,6 +64,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -66,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
