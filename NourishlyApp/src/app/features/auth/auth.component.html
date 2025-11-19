@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nourishly - Bite-Sized Bliss</title>
+    <link rel="stylesheet" href="auth.component.scss">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="auth-container w-full max-w-md mx-auto p-6">
+        <div class="logo flex justify-center mb-8">
+            <div class="text-green-500 text-3xl font-bold">
+                Nourishly
+            </div>
+</div>
+        
+        <div class="auth-toggle flex justify-center mb-8">
+            <button id="login-toggle" class="toggle-btn active px-6 py-2 rounded-l-lg bg-green-500 text-white font-medium">Login</button>
+            <button id="register-toggle" class="toggle-btn px-6 py-2 rounded-r-lg bg-emerald-500 text-white font-medium">Register</button>
+        </div>
+        
+        <div id="login-form" class="auth-form bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Welcome Back!</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="login-email" class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="login-email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="your@email.com">
+                </div>
+                <div class="mb-6">
+                    <label for="login-password" class="block text-gray-700 mb-2">Password</label>
+                    <input type="password" id="login-password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg transition duration-200">Sign In</button>
+            </form>
+            <div class="mt-4 text-center">
+                <a href="#" class="text-emerald-500 hover:text-emerald-600 text-sm">Forgot password?</a>
+            </div>
+        </div>
+        
+        <div id="register-form" class="auth-form hidden bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Join Nourishly</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="register-name" class="block text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="register-name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="John Doe">
+                </div>
+                <div class="mb-4">
+                    <label for="register-email" class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="register-email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="your@email.com">
+                </div>
+                <div class="mb-4">
+                    <label for="register-password" class="block text-gray-700 mb-2">Password</label>
+                    <input type="password" id="register-password" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="••••••••">
+                </div>
+                <div class="mb-6">
+                    <label for="register-confirm" class="block text-gray-700 mb-2">Confirm Password</label>
+                    <input type="password" id="register-confirm" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="••••••••">
+                </div>
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg transition duration-200">Create Account</button>
+            </form>
+        </div>
+</div>
+
+    <script src="auth.component.ts"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

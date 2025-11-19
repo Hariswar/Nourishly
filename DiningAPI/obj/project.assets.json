@@ -482,19 +482,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alanj\\.nuget\\packages\\": {}
+    "/Users/gv81928/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
+      "projectUniqueName": "/Users/gv81928/Desktop/Nourishly/DiningAPI/DiningAPI.csproj",
       "projectName": "DiningAPI",
-      "projectPath": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
-      "packagesPath": "C:\\Users\\alanj\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\obj\\",
+      "projectPath": "/Users/gv81928/Desktop/Nourishly/DiningAPI/DiningAPI.csproj",
+      "packagesPath": "/Users/gv81928/.nuget/packages/",
+      "outputPath": "/Users/gv81928/Desktop/Nourishly/DiningAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alanj\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/gv81928/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -518,7 +518,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
@@ -552,7 +552,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
