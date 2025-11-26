@@ -44,10 +44,6 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "Confluent.Kafka": {
-              "target": "Package",
-              "version": "[2.3.0, )"
-            },
             "MediatR": {
               "target": "Package",
               "version": "[12.2.0, )"

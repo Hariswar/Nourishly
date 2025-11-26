@@ -35,4 +35,34 @@ public class LocationRepository : ILocationRepository
             .SelectMany(l => l.Menus)
             .ToListAsync();
     }
+
+    public async Task IncrementViewCountAsync(int locationId)
+    {
+        var location = await _context.Locations.FindAsync(locationId);
+        if (location != null)
+        {
+            location.ViewCount++;
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task<Location> CreateLocationAsync(string name, string? address)
+    {
+        var location = new Location { Name = name, Address = address };
+        _context.Locations.Add(location);
+        await _context.SaveChangesAsync();
+        return location;
+    }
+
+    public async Task<Location?> UpdateLocationAsync(int locationId, string name, string? address)
+    {
+        var location = await _context.Locations.FindAsync(locationId);
+        if (location != null)
+        {
+            location.Name = name;
+            location.Address = address;
+            await _context.SaveChangesAsync();
+        }
+        return location;
+    }
 }

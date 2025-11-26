@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using DiningAPI.Features.Locations.Queries;
+using DiningAPI.Features.Locations.Commands;
 
 namespace DiningAPI.Controllers;
 
@@ -26,6 +27,21 @@ public class LocationController : ControllerBase
     public async Task<IActionResult> GetLocationById(int locationId)
     {
         var result = await _mediator.Send(new GetLocationByIdQuery(locationId));
+        return result != null ? Ok(result) : NotFound();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateLocation([FromBody] CreateLocationCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return CreatedAtAction(nameof(GetLocationById), new { locationId = ((dynamic)result).LocationId }, result);
+    }
+
+    [HttpPut("{locationId:int}")]
+    public async Task<IActionResult> UpdateLocation(int locationId, [FromBody] UpdateLocationCommand command)
+    {
+        var updateCommand = command with { LocationId = locationId };
+        var result = await _mediator.Send(updateCommand);
         return result != null ? Ok(result) : NotFound();
     }
 

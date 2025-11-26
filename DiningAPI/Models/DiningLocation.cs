@@ -17,5 +17,8 @@ public class Location
     [Column("address")]
     public string? Address { get; set; }
     
+    [Column("view_count")]
+    public int ViewCount { get; set; } = 0;
+    
     public List<Menu> Menus { get; set; } = new();
 }
