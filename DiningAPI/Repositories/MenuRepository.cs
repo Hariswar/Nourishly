@@ -18,6 +18,15 @@ public class MenuRepository : IMenuRepository
         return await _context.Menus.AnyAsync(m => m.MenuId == menuId);
     }
 
+    public async Task<IEnumerable<MenuItem>> GetAllMenuItemsAsync()
+    {
+        return await _context.MenuItems
+            .Include(mi => mi.Nutritions)
+            .Include(mi => mi.Menus)
+                .ThenInclude(m => m.Locations)
+            .ToListAsync();
+    }
+
     public async Task<IEnumerable<MenuItem>> GetMenuItemsAsync(int menuId)
     {
         return await _context.Menus

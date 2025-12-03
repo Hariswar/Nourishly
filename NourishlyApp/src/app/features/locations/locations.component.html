@@ -1,0 +1,41 @@
+<div class="locations-container">
+  <h1>Dining Locations</h1>
+  
+  <div class="filters-section">
+    <input 
+      type="text" 
+      [(ngModel)]="searchText" 
+      (ngModelChange)="applyFilters()" 
+      placeholder="Search locations..." 
+      class="search-bar"
+    />
+    
+    <div class="dietary-filters">
+      <label><input type="checkbox" [(ngModel)]="dietaryFilters.vegetarian" (change)="onFilterChange()"> Vegetarian</label>
+      <label><input type="checkbox" [(ngModel)]="dietaryFilters.vegan" (change)="onFilterChange()"> Vegan</label>
+      <label><input type="checkbox" [(ngModel)]="dietaryFilters.glutenFree" (change)="onFilterChange()"> Gluten-Free</label>
+      <label><input type="checkbox" [(ngModel)]="dietaryFilters.dairyFree" (change)="onFilterChange()"> Dairy-Free</label>
+      <label><input type="checkbox" [(ngModel)]="dietaryFilters.nutFree" (change)="onFilterChange()"> Nut-Free</label>
+    </div>
+  </div>
+  
+  <div *ngIf="loading" class="loading">
+    Loading locations...
+  </div>
+  
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="!loading && !error" class="locations-grid">
+    <div *ngFor="let location of filteredLocations" class="location-card">
+      <h3>{{ location.name }}</h3>
+      <p class="address">{{ location.address }}</p>
+      <p class="view-count">Views: {{ location.viewCount }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="!loading && !error && filteredLocations.length === 0" class="no-locations">
+    No locations match your search.
+  </div>
+</div>

@@ -1,7 +1,6 @@
 using MediatR;
 using DiningAPI.Features.Locations.Queries;
 using DiningAPI.Repositories;
-using DiningAPI.Infrastructure;
 using DiningAPI.Events;
 
 namespace DiningAPI.Features.Locations.Handlers;

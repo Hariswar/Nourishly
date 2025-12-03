@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiningAPI.Models;
 
@@ -20,5 +21,6 @@ public class Location
     [Column("view_count")]
     public int ViewCount { get; set; } = 0;
     
+    [JsonIgnore]
     public List<Menu> Menus { get; set; } = new();
 }

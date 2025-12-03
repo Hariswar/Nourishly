@@ -1,4 +1,49 @@
 <div class="menu-container">
   <h1>Menu</h1>
-  <p>Browse our nutritious dining options</p>
+  
+  <div class="filters-section">
+    <input 
+      type="text" 
+      [(ngModel)]="searchText" 
+      (ngModelChange)="applyFilters()" 
+      placeholder="Search menu items..." 
+      class="search-bar"
+    />
+    
+    <select [(ngModel)]="selectedLocationId" (change)="applyFilters()" class="location-filter">
+      <option value="">All Locations</option>
+      <option *ngFor="let location of locations" [value]="location.locationId">
+        {{ location.name }}
+      </option>
+    </select>
+  </div>
+  
+  <div *ngIf="loading" class="loading">
+    Loading menu items...
+  </div>
+  
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="!loading && !error" class="menu-grid">
+    <div *ngFor="let item of filteredMenuItems" class="menu-item-card">
+      <h3>{{ item.name }}</h3>
+      <p class="description" *ngIf="item.description">{{ item.description }}</p>
+      <p class="price">${{ item.price.toFixed(2) }}</p>
+      <div class="nutrition" *ngIf="item.nutritions.length > 0">
+        <h4>Nutrition Facts</h4>
+        <div *ngFor="let nutrition of item.nutritions">
+          <p *ngIf="nutrition.calories">Calories: {{ nutrition.calories }}</p>
+          <p *ngIf="nutrition.protein">Protein: {{ nutrition.protein }}g</p>
+          <p *ngIf="nutrition.fat">Fat: {{ nutrition.fat }}g</p>
+          <p *ngIf="nutrition.carbs">Carbs: {{ nutrition.carbs }}g</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!loading && !error && filteredMenuItems.length === 0" class="no-items">
+    No menu items match your search.
+  </div>
 </div>

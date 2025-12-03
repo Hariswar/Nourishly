@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DiningAPI.Models;
 
@@ -22,5 +23,6 @@ public class Nutrition
     [Column("carbs")]
     public decimal? Carbs { get; set; }
     
+    [JsonIgnore]
     public List<MenuItem> MenuItems { get; set; } = new();
 }

@@ -16,6 +16,13 @@ public class MenuController : ControllerBase
         _mediator = mediator;
     }
 
+    [HttpGet("items")]
+    public async Task<IActionResult> GetAllMenuItems()
+    {
+        var result = await _mediator.Send(new GetAllMenuItemsQuery());
+        return Ok(result);
+    }
+
     [HttpGet("{menuId:int}/items")]
     public async Task<IActionResult> GetMenuItems(int menuId)
     {
