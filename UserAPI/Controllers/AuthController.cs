@@ -19,13 +19,14 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {
-        if (await _context.Auths.AnyAsync(a => a.Username == request.Email))
-            return BadRequest(new { message = "Email already exists" });
+        if (await _context.Auths.AnyAsync(a => a.Username == request.Username))
+            return BadRequest(new { message = "Username already exists" });
 
+        var nameParts = request.Name.Split(' ', 2);
         var user = new User
         {
-            FirstName = request.Name.Split(' ')[0],
-            LastName = request.Name.Contains(' ') ? request.Name.Split(' ')[1] : "",
+            FirstName = nameParts[0],
+            LastName = nameParts.Length > 1 ? nameParts[1] : "",
             Email = request.Email
         };
         _context.Users.Add(user);
@@ -33,7 +34,7 @@ public class AuthController : ControllerBase
 
         var auth = new Auth
         {
-            Username = request.Email,
+            Username = request.Username,
             Password = request.Password
         };
         _context.Auths.Add(auth);
@@ -49,13 +50,13 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        var auth = await _context.Auths.FirstOrDefaultAsync(a => a.Username == request.Email && a.Password == request.Password);
+        var auth = await _context.Auths.FirstOrDefaultAsync(a => a.Username == request.Username && a.Password == request.Password);
         
         if (auth == null)
             return Unauthorized(new { message = "Invalid email or password" });
 
         var userAuthMap = await _context.Database
-            .SqlQuery<UserAuthMap>($"SELECT user_id, auth_id FROM user_auth_map WHERE auth_id = {auth.AuthId}")
+            .SqlQuery<UserAuthMap>($"SELECT user_id AS \"UserId\", auth_id AS \"AuthId\" FROM user_auth_map WHERE auth_id = {auth.AuthId}")
             .FirstOrDefaultAsync();
 
         if (userAuthMap == null)
@@ -67,6 +68,6 @@ public class AuthController : ControllerBase
     }
 }
 
-public record RegisterRequest(string Name, string Email, string Password);
-public record LoginRequest(string Email, string Password);
+public record RegisterRequest(string Name, string Email, string Username, string Password);
+public record LoginRequest(string Username, string Password);
 public class UserAuthMap { public int UserId { get; set; } public int AuthId { get; set; } }
