@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DiningAPI.Models;
 
+// Nutrition details for Menu Items
 [Table("nutrition")]
 public class Nutrition
 {
