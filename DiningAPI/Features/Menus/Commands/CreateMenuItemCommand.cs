@@ -2,6 +2,7 @@ using MediatR;
 
 namespace DiningAPI.Features.Menus.Commands;
 
+// In order to create the menu items
 public record CreateMenuItemCommand(
     int MenuId, 
     string Name, 
