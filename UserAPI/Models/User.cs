@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UserAPI.Models;
 
+// Details for user information
 public class User
 {
     [Key]

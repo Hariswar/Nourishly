@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace UserAPI.Models;
 
+// Details for user authentication
 public class Auth
 {
     [Key]

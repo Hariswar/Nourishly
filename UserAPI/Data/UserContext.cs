@@ -3,6 +3,7 @@ using UserAPI.Models;
 
 namespace UserAPI.Data;
 
+// Details for how users and authentication data are stored in the database
 public class UserContext : DbContext
 {
     public UserContext(DbContextOptions<UserContext> options) : base(options) { }
