@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DiningAPI.Models;
 
+// Dining Locations with their details
 [Table("locations")]
 public class Location
 {

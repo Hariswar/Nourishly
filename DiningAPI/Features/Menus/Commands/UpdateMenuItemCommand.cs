@@ -2,6 +2,7 @@ using MediatR;
 
 namespace DiningAPI.Features.Menus.Commands;
 
+// In order to update the menu items
 public record UpdateMenuItemCommand(
     int MenuId,
     int ItemId,

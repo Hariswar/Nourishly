@@ -4,11 +4,12 @@ using System.Text.Json.Serialization;
 
 namespace DiningAPI.Models;
 
+// Menu Items with their details
 [Table("menu_items")]
 public class MenuItem
 {
     [Key]
-    [Column("item_id")]
+    [Column("item_id")] // Primary Key
     public int ItemId { get; set; }
     
     [Required]

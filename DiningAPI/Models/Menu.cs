@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace DiningAPI.Models;
 
+// Menu with their details
 [Table("menu")]
 public class Menu
 {
