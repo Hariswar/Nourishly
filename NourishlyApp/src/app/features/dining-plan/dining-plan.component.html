@@ -1,0 +1,22 @@
+<div class="dining-plan-container">
+  <h1>My Dining Plan</h1>
+  
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  
+  <div *ngIf="!loading && !error" class="plan-cards">
+    <div class="plan-card">
+      <div class="card-icon">🍽️</div>
+      <h2>Meal Swipes</h2>
+      <p class="balance">{{ mealSwipes }}</p>
+      <p class="label">Remaining</p>
+    </div>
+    
+    <div class="plan-card">
+      <div class="card-icon">💰</div>
+      <h2>DBD's</h2>
+      <p class="balance">${{ dbds.toFixed(2) }}</p>
+      <p class="label">Available</p>
+    </div>
+  </div>
+</div>

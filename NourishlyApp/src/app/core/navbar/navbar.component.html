@@ -6,6 +6,8 @@
     <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
     <li><a routerLink="/locations" routerLinkActive="active">Locations</a></li>
     <li><a routerLink="/menu" routerLinkActive="active">Menu</a></li>
-    <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    <li *ngIf="isLoggedIn"><a routerLink="/dining-plan" routerLinkActive="active">Dining Plan</a></li>
+    <li *ngIf="!isLoggedIn"><a routerLink="/login" routerLinkActive="active">Login</a></li>
+    <li *ngIf="isLoggedIn"><a (click)="logout()" style="cursor: pointer;">Logout</a></li>
   </ul>
 </nav>

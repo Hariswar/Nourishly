@@ -41,6 +41,14 @@ public class RegisterHandler : IRequestHandler<RegisterCommand, object>
             $"INSERT INTO user_auth_map (user_id, auth_id) VALUES ({user.UserId}, {auth.AuthId})",
             cancellationToken);
 
+        var fund = new Fund { MealSwipes = 0, Dbds = 0 };
+        _context.Funds.Add(fund);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        await _context.Database.ExecuteSqlAsync(
+            $"INSERT INTO user_fund_map (user_id, fund_id) VALUES ({user.UserId}, {fund.FundId})",
+            cancellationToken);
+
         return new { userId = user.UserId, name = $"{user.FirstName} {user.LastName}", email = user.Email };
     }
 }
