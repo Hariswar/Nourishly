@@ -7,6 +7,6 @@ Project Description:
 
 
 How to Run Nourishly:
-1. npm start
-2. npm install
+1. npm install
+2. npm start
 3. In second terminal, dotnet run
