@@ -7,6 +7,8 @@ Project Description:
 
 
 How to Run Nourishly:
+1. In frist terminal, cd into NourishlyApp
 1. npm install
 2. npm start
-3. In second terminal, dotnet run
+3. In second terminal, cd into Dining API
+4. The run the command: dotnet run
