@@ -30,14 +30,14 @@ jobs:
     - name: Install dotnet-coverage
       run: dotnet tool install --global dotnet-coverage
 
-    - name: Merge Coverage
-      run: dotnet-coverage merge "./coverage/**/*.coverage" --output ./coverage/merged.coverage --output-format cobertura
+    - name: Convert Coverage to XML
+      run: for file in ./coverage/**/*.coverage; do dotnet-coverage merge "$file" --output "${file%.coverage}.xml" --output-format cobertura; done
       if: success()
 
     - name: Generate .NET Coverage Report
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator -reports:./coverage/merged.coverage.xml -targetdir:./coverage-report -reporttypes:Html
+        reportgenerator -reports:./coverage/**/*.xml -targetdir:./coverage-report -reporttypes:Html
       if: success()
 
     - name: Upload .NET Coverage Reports
