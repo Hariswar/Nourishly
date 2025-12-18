@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj": {}
+    "c:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj": {
+    "c:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
+        "projectUniqueName": "c:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
         "projectName": "DiningAPI",
-        "projectPath": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
+        "projectPath": "c:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\DiningAPI.csproj",
         "packagesPath": "C:\\Users\\alanj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\obj\\",
+        "outputPath": "c:\\Users\\alanj\\Desktop\\CS4090-SWECapstone\\Nourishly\\DiningAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alanj\\AppData\\Roaming\\NuGet\\NuGet.Config"
