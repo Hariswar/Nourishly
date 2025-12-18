@@ -17,7 +17,7 @@ interface Location {
   address?: string;
 }
 
-interface Menu {
+export interface Menu {
   menuId: number;
   name: string;
   locations: Location[];
