@@ -122,3 +122,5 @@ C:\Users\alanj\Desktop\CS4090-SWECapstone\Nourishly\UserAPI\obj\Debug\net9.0\ref
 C:\Users\alanj\Desktop\CS4090-SWECapstone\Nourishly\UserAPI\obj\Debug\net9.0\UserAPI.pdb
 C:\Users\alanj\Desktop\CS4090-SWECapstone\Nourishly\UserAPI\obj\Debug\net9.0\UserAPI.genruntimeconfig.cache
 C:\Users\alanj\Desktop\CS4090-SWECapstone\Nourishly\UserAPI\obj\Debug\net9.0\ref\UserAPI.dll
+C:\Users\alanj\Desktop\CS4090-SWECapstone\Nourishly\UserAPI\bin\Debug\net9.0\MediatR.dll
+C:\Users\alanj\Desktop\CS4090-SWECapstone\Nourishly\UserAPI\bin\Debug\net9.0\MediatR.Contracts.dll
