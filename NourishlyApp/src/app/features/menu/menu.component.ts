@@ -56,7 +56,7 @@ export class MenuComponent implements OnInit {
 
   loadMenuItems() {
     this.loading = true;
-    this.http.get<MenuItem[]>(`${environment.apiUrl}/Menu/items`)
+    this.http.get<MenuItem[]>(`${environment.diningApiUrl}/Menu/items`)
       .subscribe({
         next: (data) => {
           this.menuItems = data;

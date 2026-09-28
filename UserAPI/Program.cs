@@ -16,7 +16,8 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        var origins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? ["http://localhost:4200"];
+        policy.WithOrigins(origins)
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -24,13 +25,24 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Create the schema on first run; the map tables are used through raw SQL, so EF doesn't create them
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<UserContext>();
+    db.Database.EnsureCreated();
+    db.Database.ExecuteSqlRaw(@"
+        CREATE TABLE IF NOT EXISTS user_auth_map (user_id int NOT NULL, auth_id int NOT NULL, PRIMARY KEY (user_id, auth_id));
+        CREATE TABLE IF NOT EXISTS user_fund_map (user_id int NOT NULL, fund_id int NOT NULL, PRIMARY KEY (user_id, fund_id));");
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    // In production the host terminates TLS in front of the container
+    app.UseHttpsRedirection();
 }
 
-app.UseHttpsRedirection();
 app.UseCors();
 app.MapControllers();
 

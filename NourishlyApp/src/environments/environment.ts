@@ -1,3 +1,4 @@
 export const environment = {
-  apiUrl: 'https://nourishly-dining-api.onrender.com',
+  diningApiUrl: 'https://nourishly-dining-api.onrender.com',
+  userApiUrl: 'https://nourishly-user-api.onrender.com',
 };

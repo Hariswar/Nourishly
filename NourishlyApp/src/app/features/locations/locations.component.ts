@@ -39,8 +39,8 @@ export class LocationsComponent implements OnInit {
 
   loadLocations() {
     this.loading = true;
-    console.log(`Calling API: ${environment.apiUrl}/Location`);
-    this.http.get<Location[]>(`${environment.apiUrl}/Location`)
+    console.log(`Calling API: ${environment.diningApiUrl}/Location`);
+    this.http.get<Location[]>(`${environment.diningApiUrl}/Location`)
       .subscribe({
         next: (data) => {
           console.log('API Response:', data);
