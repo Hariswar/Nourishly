@@ -32,7 +32,7 @@ public class RegisterHandler : IRequestHandler<RegisterCommand, object>
         var auth = new Models.Auth
         {
             Username = request.Username,
-            Password = request.Password
+            Password = BCrypt.Net.BCrypt.HashPassword(request.Password)
         };
         _context.Auths.Add(auth);
         await _context.SaveChangesAsync(cancellationToken);
@@ -65,10 +65,11 @@ public class LoginHandler : IRequestHandler<LoginCommand, object?>
     public async Task<object?> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
         var auth = await _context.Auths.FirstOrDefaultAsync(
-            a => a.Username == request.Username && a.Password == request.Password, 
+            a => a.Username == request.Username,
             cancellationToken);
-        
-        if (auth == null) return null;
+
+        // Passwords are stored as BCrypt hashes
+        if (auth?.Password == null || !PasswordMatches(request.Password, auth.Password)) return null;
 
         var userAuthMap = await _context.Database
             .SqlQuery<UserAuthMap>($"SELECT user_id AS \"UserId\", auth_id AS \"AuthId\" FROM user_auth_map WHERE auth_id = {auth.AuthId}")
@@ -80,6 +81,13 @@ public class LoginHandler : IRequestHandler<LoginCommand, object?>
         if (user == null) return null;
 
         return new { userId = user.UserId, name = $"{user.FirstName} {user.LastName}", email = user.Email };
+    }
+
+    // Accounts created before hashing hold plain text, which BCrypt can't parse
+    private static bool PasswordMatches(string? password, string hash)
+    {
+        try { return BCrypt.Net.BCrypt.Verify(password, hash); }
+        catch (BCrypt.Net.SaltParseException) { return false; }
     }
 }
 
