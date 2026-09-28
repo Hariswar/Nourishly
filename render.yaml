@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: nourishly-dining-api
+    runtime: docker
+    plan: free
+    rootDir: DiningAPI
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /Location
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: ConnectionStrings__DefaultConnection
+        sync: false

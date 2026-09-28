@@ -25,7 +25,8 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        var origins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? ["http://localhost:4200"];
+        policy.WithOrigins(origins)
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -33,14 +34,22 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Create the schema and add sample data on first run
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<DiningContext>();
+    db.Database.EnsureCreated();
+    DbSeeder.Seed(db);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    // In production the host terminates TLS in front of the container
+    app.UseHttpsRedirection();
 }
-
-app.UseHttpsRedirection();
 
 // Use CORS
 app.UseCors();

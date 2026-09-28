@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 interface Location {
   locationId: number;
@@ -38,8 +39,8 @@ export class LocationsComponent implements OnInit {
 
   loadLocations() {
     this.loading = true;
-    console.log('Calling API: http://localhost:5150/Location');
-    this.http.get<Location[]>('http://localhost:5150/Location')
+    console.log(`Calling API: ${environment.apiUrl}/Location`);
+    this.http.get<Location[]>(`${environment.apiUrl}/Location`)
       .subscribe({
         next: (data) => {
           console.log('API Response:', data);

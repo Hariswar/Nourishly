@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
 
 interface Nutrition {
   nutritionId: number;
@@ -55,7 +56,7 @@ export class MenuComponent implements OnInit {
 
   loadMenuItems() {
     this.loading = true;
-    this.http.get<MenuItem[]>('http://localhost:5150/Menu/items')
+    this.http.get<MenuItem[]>(`${environment.apiUrl}/Menu/items`)
       .subscribe({
         next: (data) => {
           this.menuItems = data;
